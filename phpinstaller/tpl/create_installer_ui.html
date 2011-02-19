@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>PHP Compressor</title>
+		<link href="phpinstaller/tpl/style.css" type="text/css" rel="stylesheet" />
+	</head>
+	<body>
+		<!-- created with PHP Installer -->
+		<div id="title">Rain Php Compressor</div>
+		<div>Compress all directory and mysql</div>
+		<div id="layout">
+		<form action="" method="POST">
+			<input type="hidden" name="install" value="1">
+			<div class="title">Create Installer</div>
+			<div><span>Software name</span><input type="text" name="title" value="<?php echo get('title');?>"></div>
+			<div><span>Description </span><textarea name="description"><?php echo get('description');?></textarea></div>
+			<div><span>Author </span><input type="text" name="author" value="<?php echo get('author');?>"></div>
+			<div><span>Directory to compress</span><input type="text" name="dir" value="<?php echo get('dir');?>"></div>
+			<div>
+				<input type="checkbox" id="db" name="db" <?php echo get('db')?'checked="checked"':null;?> onchange="document.getElementById('db_fieldset').style.display=!this.checked?'none':'block';"> <label for="db">Do you want insert the database in the install file?</label>
+				<fieldset id="db_fieldset" <?php echo get('db')?null:'style="display:none;"';?>>
+					<div><span>Database hostname</span><input type="text" name="db_hostname" value="<?php echo get('db_hostname');?>"></div>
+					<div><span>Database Username</span><input type="text" name="db_username" value="<?php echo get('db_username');?>"></div>
+					<div><span>Database Password</span><input type="text" name="db_password" value="<?php echo get('db_password');?>"></div>
+					<div><span>Database Name</span><input type="text" name="db_database" value="<?php echo get('db_database');?>"></div>
+				</fieldset>
+			</div>
+			<div><span>Installer filename</span><input type="text" name="filename" value="<?php echo get('filename')?get('filename'):INSTALL_DEFAULT;?>"></div>
+			<div><span>File to execute on installation complete</span><input type="text" name="execute" value="<?php echo get('execute');?>"></div>
+			<div><button>Crea file</button></div>
+		</form>
+		</div>
+		<div id="copyright">Copyright 2008-2010 <a href="http://www.raincms.com/">www.raincms.com</a></div>
+	</body>
+</html>

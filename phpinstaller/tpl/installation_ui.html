@@ -1,0 +1,72 @@
+<body>
+	<!-- created with PHP Installer -->
+	<div id="title">{$title}</div>
+	<div id="description">{$description}</div>
+	<div id="author">{$author}</div>
+	<div id="layout">
+	<form action="" method="POST">
+		<div class="title">Installation</div>
+		<div>
+			<b>Info</b>:<br/>
+			{$nfile} files and {$ndir} directories: {$size}<br/>
+			Compressed size: {$compressed_size}<br/>
+			<?php
+				if( $execute )
+					echo "<b>After the installation will be executed the file: $execute</b>";
+			?>
+		</div>
+		<div><span>Choose directory <font>where the package will be installed</font></span> 
+			<input type="text" name="dir" value=""></div>
+		<div>
+			<input type="checkbox" name="overwrite" id="overwrite"> <label for="overwrite">Overwrite files? <font>Check to overwrite exsistent files</font></label>
+		</div>
+		<div>
+			<label for="db"><input type="checkbox" id="db" name="db" onchange="document.getElementById('db_fieldset').style.display=!this.checked?'none':'block';"> Install database? <font>Check to install database</font></label>
+			<fieldset id="db_fieldset" style="display:none;">
+				<div><span>Database hostname</span><input type="text" name="db_hostname" value=""></div>
+				<div><span>Database Username</span><input type="text" name="db_username" value=""></div>
+				<div><span>Database Password</span><input type="text" name="db_password" value=""></div>
+				<div><span>Database Name</span><input type="text" name="db_database" value="<?php echo $db['database']; ?>"></div>
+				<div><a href="?dump=1" target="_blank">Click here to download the database for manual installing</a></div>
+			</fieldset>
+		</div>
+		<div>
+			<input type="checkbox" name="install" id="install"> <label for="install">Confirm installation <font>Check to procede with the installation</font></label>
+		</div>
+		<div><button>INSTALLATION</button></div>
+	</form>
+	</div>
+
+	<?php if( isset($file ) ){ ?>
+	<br/><br/>
+	File in the package
+	<table cellspacing="0" cellpadding="5" id="list">
+		<thead>
+			<th>Filename</td>
+			<th>Size</td>
+			<th>Permission</td>
+		</thead>
+		<?php
+			foreach( $file as $filename => $value )
+				echo "<tr><td>$filename</td><td>".(byte($value['size']))."</td><td align=\"center\">{$value['perms']}</td></tr>";
+		?>
+	</table>
+	<?php } ?>
+	
+	<?php if( isset($db) ){ ?>
+	<br/><br/>
+	Database in the package
+	<table cellspacing="0" cellpadding="5" id="list">
+		<thead>
+			<th>Table</td>
+			<th>Rows</td>
+		</thead>
+		<?php
+			foreach( $db['table_list'] as $table => $n )
+				echo "<tr><td>$table</td><td>{$n}</td></tr>";
+		?>
+	</table>
+	<?php } ?>
+
+	<div id="copyright">Installer created by Php Installer (<a href="http://www.rainframework.com/">www.rainframework.com</a>)</div>
+</body>

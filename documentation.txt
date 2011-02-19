@@ -1,0 +1,47 @@
+	//------------------------------------------
+	// Php Installer 0.5 (beta)
+	//------------------------------------------
+
+	What is?
+		. Php Installer is a script that compresses content of directory and database into an executable php file.
+		
+	Features?
+		. compress with gzip
+		. user interface for installation
+		. choose the directories to install
+		. dump database
+		. overwrite existing file (yes/no)
+		
+	How works (Developer interface):
+		. Copy "create_installer.php" and "php installer/" in the directory of script you want insert into the compressed package,
+		. execute "create_installer.php" by browser, edit all settings:
+			- Title (title of package)
+			- Description
+			- Author
+			- Database (choose if you want dump the database)
+			- Directory to compress, select the directory you want instert into the package, if you leave blank Php Installer will take the current
+			directory. Into the package it will not insert the files listed in installer.class.php::ignore_list.
+			- Installer Filename: name of the installer file
+			- File to execute on installation complete: you can select a file that will be executed after 10 seconds of the end of the installation.
+			Usefull for example for cms installation, or other web software.
+		
+	How Works (User Interface):
+		. copy the file where you want install the package
+		. execute the install file (es. install.php) by browser and edit all settings:
+			- choose directory, where deflate the file
+			- Overwrite files, if files are duplicated
+			- Install database, set database access and database to import the database
+			- Confirm installation, check to install the package.
+		. You can check the list of files and tables that will be installed.
+			
+	
+	To Do:
+		. download output installer
+		. password to protect installation
+		. unique installation for a pc (IP check, date check and other)
+		. code obfuscator for installed code
+		
+	
+	
+	
+	
