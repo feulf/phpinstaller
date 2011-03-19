@@ -1,0 +1,2 @@
+It compress all the contents of a selected directory into a single php file, by default named install.php.
+The install.php file contains an installer script to deflate all the contents archived.
