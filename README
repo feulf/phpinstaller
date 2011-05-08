@@ -1,2 +1,1 @@
-It compress all the contents of a selected directory into a single php file, by default named install.php.
-The install.php file contains an installer script to deflate all the contents archived.
+Create installer in a single install.php file. It compress all the selected files and directories in a single PHP file. The install.php file contains an installer script to deflate all the contents archived and it can also install the database archived.
